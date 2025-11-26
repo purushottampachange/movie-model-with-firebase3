@@ -134,8 +134,8 @@ const Templating = (arr) => {
                         </figure>
                     </div>
                     <div class="card-footer d-flex justify-content-between p-0">
-                        <button class="btn btn-sm btn-success">Edit</button>
-                        <button class="btn btn-sm btn-danger">Remove</button>
+                        <button class="btn btn-sm btn-success" onclick = "onEdit(this)">Edit</button>
+                        <button class="btn btn-sm btn-danger" onclick = "onRemove(this)">Remove</button>
                     </div>
                 </div>
             </div>
@@ -146,15 +146,76 @@ const Templating = (arr) => {
     movieContainer.innerHTML = res;
 }
 
+const CreateCard = (m, id) => {
+
+    let card = document.createElement("div");
+
+    card.id = id;
+
+    card.className = "col-md-3 mb-4";
+
+    card.innerHTML = `
+      
+              <div class="card movieCard text-white">
+                    <div class="card-header p-0">
+                        <div class="row">
+                            <div class="col-10">
+                                <h5>${m.title}</h5>
+                            </div>
+                            <div class="col-2">
+                                <span class="badge ${RatingClass(m.rating)}">${m.rating}</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body p-0">
+                        <figure>
+                            <img src="${m.imgPath}"
+                                alt="${m.title}">
+                            <figcaption>
+                                <p>${m.content}</p>
+                            </figcaption>
+                        </figure>
+                    </div>
+                    <div class="card-footer d-flex justify-content-between p-0">
+                        <button class="btn btn-sm btn-success" onclick = "onEdit(this)">Edit</button>
+                        <button class="btn btn-sm btn-danger" onclick = "onRemove(this)">Remove</button>
+                    </div>
+                </div> 
+    
+    `;
+
+    movieContainer.prepend(card);
+}
+
 const FetchData = async () => {
 
     let res = await MakeAPICall(PostURL, "GET", null);
 
-     Templating(ConvertArr(res));
+    Templating(ConvertArr(res));
 }
 
 FetchData();
 
+const onSubmit = async (eve) => {
+
+    eve.preventDefault();
+
+    let movieObj = {
+
+        title: movieName.value,
+        content: movieDes.value,
+        imgPath: movieImg.value,
+        rating: movieRating.value
+    }
+
+    let res = await MakeAPICall(PostURL, "POST", movieObj);
+   
+    CreateCard(movieObj,res.name);
+    
+    movieForm.reset();
+}
+
 closeBtn.forEach(b => b.addEventListener("click", onHideShow));
 nfxBtn.addEventListener("click", onHideShow);
+movieForm.addEventListener("submit", onSubmit);
 
