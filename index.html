@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+        integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-6 mt-4">
+                <a href="index.html" class="logo">
+                    <img src="./assets/images/logo.svg" alt="logo">
+                </a>
+            </div>
+            <div class="col-6 mt-4 d-flex justify-content-end align-items-start">
+                <button class="btn btn-sm nfxBtn" id="nfxBtn">Add Movie</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid">
+        <div class="row" id="movieContainer">
+            <!-- <div class="col-md-3">
+                <div class="card movieCard text-white">
+                    <div class="card-header p-0">
+                        <div class="row">
+                            <div class="col-10">
+                                <h5>name of movie</h5>
+                            </div>
+                            <div class="col-2">
+                                <span class="badge badge-success">5</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body p-0">
+                        <figure>
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQf5vpjlKjm7XETxPoGaTwNITpG7rebXolP5BhY3dmiwadiYAczP3oC6fbfPSSBxb352oJEeDdCBxFOzMnKw2593Q4h7lUNz_ACauJWonsfyg&s=10"
+                                alt="">
+                            <figcaption>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique qui rerum quis
+                                    laboriosam vel labore odio ut fuga quam dolore explicabo saepe omnis eaque placeat
+                                    dolor beatae hic, nam fugiat.</p>
+                            </figcaption>
+                        </figure>
+                    </div>
+                    <div class="card-footer d-flex justify-content-between p-0">
+                        <button class="btn btn-sm btn-success">Edit</button>
+                        <button class="btn btn-sm btn-danger">Remove</button>
+                    </div>
+                </div>
+            </div> -->
+        </div>
+    </div>
+
+    <div class="backDrop closeBtn" id="backDrop">
+
+    </div>
+
+    <div class="movieModel" id="movieModel">
+        <form id="movieForm">
+            <div class="card">
+                <div class="card-header d-flex justify-content-between">
+                    <h5>Enter Movie Details</h5>
+                    <i class="fa-solid fa-xmark fa-2x closeBtn" role="button"></i>
+                </div>
+                <div class="card-body">
+                    <div class="form-group">
+                        <label for="movieName">Enter Name</label>
+                        <input type="text" class="form-control" id="movieName">
+                    </div>
+                    <div class="form-group">
+                        <label for="movieImg">Enter Img</label>
+                        <input type="text" class="form-control" id="movieImg">
+                    </div>
+                    <div class="form-group">
+                        <label for="movieDes">Enter Desc</label>
+                        <input type="text" class="form-control" id="movieDes">
+                    </div>
+                    <div class="form-group">
+                        <label for="movieRating">Enter Rating</label>
+                        <select type="text" class="form-control" id="movieRating">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                            <option value="10">10</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="card-footer d-flex justify-content-between">
+                    <button class="btn btn-sm  btn-dark" id="submitBtn" type="submit">Add Movie</button>
+                    <button class="btn btn-sm  btn-succes d-none" id="updateBtn" type="button">update Movie</button>
+                    <button class="btn btn-sm  btn-danger closeBtn" type="button">Close</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <div class="spinner" id="spinner">
+        <div class="spinner-border" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="./assets/js/app.js"></script>
+</body>
+
+</html>
